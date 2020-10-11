@@ -1,0 +1,79 @@
+%% Low the resolution of original images
+clc; clear all;
+% Input video Path
+infraredimage = './[infrared]/';
+visibleimage = './[visible]/';
+
+% Output video Path
+IROutputPath = './[IRout]/';
+VisOutputPath = './[VisOut]/';
+
+% Parameters for Resolution Reduction
+stepsize = 1;
+m=size(img, 1)/stepsize; 
+n=size(img, 2)/stepsize;
+
+fun=@(block_struct) ___;
+img=blockproc('', [3 ])
+
+
+% Deal with Thermal images
+infraredFrames = dir([infraredimage, '*.png']);
+for i = 1:length(infraredFrames)
+    img = imread([infraredimage, infraredFrames(i).name]);
+    img = imresize(img, [m n]);
+    disp(['Processing the', num2str(i), 'frames, please waiting...']);
+    imwrite(img, [IROutputPath, infraredFrames(i).name(1:end-4), '_vs.png']);
+end 
+% Deal with visible images
+visibleFrames = dir([visibleimage, '*.png']);
+for i = 1:length(visibleFrames)
+    img = imread([visibleimage, visibleFrames(i).name]);
+    img = imresize(img, [m n]);
+    disp(['Processing the', num2str(i), 'frames, please waiting...']);
+    imwrite(img, [VisOutputPath, visibleFrames(i).name(1:end-4), '_vs.png']);
+end 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
